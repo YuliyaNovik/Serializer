@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Serializer.Distributions {
-    class Debian {
-
+    [XmlRoot]
+    public class Debian {
+        [XmlElement]
         public string version { get; set; }
 
         public Debian (){}
