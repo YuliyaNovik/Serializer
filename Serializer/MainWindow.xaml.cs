@@ -21,5 +21,13 @@ namespace Serializer {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void ButtonSerialize_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void ButtonDeserialize_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
