@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Serializer.Distributions {
-    [XmlRoot]
+    [Serializable]
     public class Ubuntu : Debian {
         public string imageName { get; set; }
         public string namingRules { get; set; }

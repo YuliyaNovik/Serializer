@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Serializer.Distributions {
-    [XmlRoot]
+    [Serializable]
     public class CommodoreOS : LinuxMint {
         public string specialDesign { get; set; }
         public CommodoreOS() {

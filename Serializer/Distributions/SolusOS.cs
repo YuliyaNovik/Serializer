@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Serializer.Distributions {
-    [XmlRoot]
+    [Serializable]
     public class SolusOS : LinuxMintDebianEdition{
 
         public string installer { get; set; }

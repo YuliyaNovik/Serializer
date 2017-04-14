@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Serializer.Distributions {
-    [XmlRoot]
+    [Serializable]
     public class LinuxMintDebianEdition : Debian{
         public string fileManager { get; set; }
         public LinuxMintDebianEdition() { }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Serializer.Distributions {
+    [Serializable]
     public class ElementaryOS : Ubuntu {
         public string installer { get; set; }
         public ElementaryOS() {
