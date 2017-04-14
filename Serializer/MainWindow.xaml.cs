@@ -62,7 +62,6 @@ namespace Serializer {
             this.specialDesign.IsEnabled = specialDesign;
         }
 
-
         private void SetupField(Debian debian) {
             BoolSetupField(false, false, false, false, false);
         }
@@ -152,64 +151,64 @@ namespace Serializer {
             string specialDesign = this.specialDesign.Text;
             this.list.Add(new CommodoreOS(systemName, systemVersion, systemCore, imageName, namingRules, fileManager, specialDesign));
         }
-    
+
+        private void SetupRequiredValues(string systemName = "", string systemVersion = "", string coreVersion = "", string imageName = "", string namingRules = "", string fileManager = "", string installer = "", string specialDesign = "") {
+            this.systemName.Text = systemName;
+            this.systemVersion.Text = systemVersion;
+            this.coreVersion.Text = coreVersion;
+            this.imageName.Text = imageName;
+            this.namingRules.Text = namingRules;
+            this.fileManager.Text = fileManager;
+            this.specialDesign.Text = specialDesign;
+            this.installer.Text = installer;
+        }
+
         private void ViewProperties(Debian debian) {
             this.SetupField(debian);
-            this.systemName.Text = debian.systemName;
-            this.systemVersion.Text = debian.systemVersion;
-            this.coreVersion.Text = debian.coreVersion;
+            this.SetupRequiredValues(systemName: debian.systemName, systemVersion: debian.systemVersion,
+                                     coreVersion: debian.coreVersion);
         }
 
         private void ViewProperties(Ubuntu ubuntu) {
             this.SetupField(ubuntu);
-            this.systemName.Text = ubuntu.systemName;
-            this.systemVersion.Text = ubuntu.systemVersion;
-            this.coreVersion.Text = ubuntu.coreVersion;
-            this.imageName.Text = ubuntu.imageName;
-            this.namingRules.Text = ubuntu.namingRules;
+            this.SetupRequiredValues(systemName: ubuntu.systemName, systemVersion: ubuntu.systemVersion,
+                                     coreVersion: ubuntu.coreVersion, imageName: ubuntu.imageName,
+                                     namingRules: ubuntu.namingRules);
         }
+
         private void ViewProperties(LinuxMint linuxMint) {
             this.SetupField(linuxMint);
-            this.systemName.Text = linuxMint.systemName;
-            this.systemVersion.Text = linuxMint.systemVersion;
-            this.coreVersion.Text = linuxMint.coreVersion;
-            this.imageName.Text = linuxMint.imageName;
-            this.namingRules.Text = linuxMint.namingRules;
-            this.fileManager.Text = linuxMint.fileManager;
+            this.SetupRequiredValues(systemName: linuxMint.systemName, systemVersion: linuxMint.systemVersion,
+                                     coreVersion: linuxMint.coreVersion, imageName: linuxMint.imageName,
+                                     namingRules: linuxMint.namingRules, fileManager: linuxMint.fileManager);
         }
+
         private void ViewProperties(LinuxMintDebianEdition linuxMintDebianEdition) {
             this.SetupField(linuxMintDebianEdition);
-            this.systemName.Text = linuxMintDebianEdition.systemName;
-            this.systemVersion.Text = linuxMintDebianEdition.systemVersion;
-            this.coreVersion.Text = linuxMintDebianEdition.coreVersion;
-            this.fileManager.Text = linuxMintDebianEdition.fileManager;
+            this.SetupRequiredValues(systemName: linuxMintDebianEdition.systemName, systemVersion: linuxMintDebianEdition.systemVersion,
+                                     coreVersion: linuxMintDebianEdition.coreVersion, fileManager: linuxMintDebianEdition.fileManager);
         }
+
         private void ViewProperties(ElementaryOS elementaryOS) {
             this.SetupField(elementaryOS);
-            this.systemName.Text = elementaryOS.systemName;
-            this.systemVersion.Text = elementaryOS.systemVersion;
-            this.coreVersion.Text = elementaryOS.coreVersion;
-            this.imageName.Text = elementaryOS.imageName;
-            this.namingRules.Text = elementaryOS.namingRules;
-            this.installer.Text = elementaryOS.installer;
+            this.SetupRequiredValues(systemName: elementaryOS.systemName, systemVersion: elementaryOS.systemVersion,
+                                     coreVersion: elementaryOS.coreVersion, imageName: elementaryOS.imageName,
+                                     namingRules: elementaryOS.namingRules, installer: elementaryOS.installer);
         }
+
         private void ViewProperties(SolusOS solusOS) {
             this.SetupField(solusOS);
-            this.systemName.Text = solusOS.systemName;
-            this.systemVersion.Text = solusOS.systemVersion;
-            this.coreVersion.Text = solusOS.coreVersion;
-            this.fileManager.Text = solusOS.fileManager;
-            this.installer.Text = solusOS.installer;
+            this.SetupRequiredValues(systemName: solusOS.systemName, systemVersion: solusOS.systemVersion,
+                                     coreVersion: solusOS.coreVersion,fileManager: solusOS.fileManager,
+                                     installer: solusOS.installer);
         }
         private void ViewProperties(CommodoreOS commodoreOS) {
             this.SetupField(commodoreOS);
-            this.systemName.Text = commodoreOS.systemName;
-            this.systemVersion.Text = commodoreOS.systemVersion;
-            this.coreVersion.Text = commodoreOS.coreVersion;
-            this.imageName.Text = commodoreOS.imageName;
-            this.namingRules.Text = commodoreOS.namingRules;
-            this.fileManager.Text = commodoreOS.fileManager;
-            this.specialDesign.Text = commodoreOS.specialDesign;
+            this.SetupRequiredValues(systemName: commodoreOS.systemName, systemVersion: commodoreOS.systemVersion,
+                                     coreVersion: commodoreOS.coreVersion, imageName: commodoreOS.imageName,
+                                     namingRules: commodoreOS.namingRules, fileManager: commodoreOS.fileManager,
+                                     specialDesign: commodoreOS.specialDesign);
+
         }
 
         private void EditProperties(Debian debian) {
@@ -295,6 +294,7 @@ namespace Serializer {
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            this.SetupRequiredValues();
             this.SetupField(this.listComboBox[this.comboBox.SelectedIndex]);
         }
     }
