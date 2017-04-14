@@ -54,83 +54,43 @@ namespace Serializer {
             UpdateList();
         }
 
+        private void BoolSetupField(bool imageName, bool namingRules, bool fileManager, bool installer, bool specialDesign) {
+            this.imageName.IsEnabled = imageName;
+            this.namingRules.IsEnabled = namingRules;
+            this.fileManager.IsEnabled = fileManager;
+            this.installer.IsEnabled = installer;
+            this.specialDesign.IsEnabled = specialDesign;
+        }
+
+
         private void SetupField(Debian debian) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = false;
-            this.namingRules.IsEnabled = false;
-            this.fileManager.IsEnabled = false;
-            this.installer.IsEnabled = false;
-            this.specialDesign.IsEnabled = false;
+            BoolSetupField(false, false, false, false, false);
         }
 
         private void SetupField(Ubuntu ubuntu) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = true;
-            this.namingRules.IsEnabled = true;
-            this.fileManager.IsEnabled = false;
-            this.installer.IsEnabled = false;
-            this.specialDesign.IsEnabled = false;
+            BoolSetupField(true, true, false, false, false);
 
         }
 
         private void SetupField(LinuxMint linuxMint) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = true;
-            this.namingRules.IsEnabled = true;
-            this.fileManager.IsEnabled = true;
-            this.installer.IsEnabled = false;
-            this.specialDesign.IsEnabled = false;
+            BoolSetupField(true, true, true, false, false);
 
         }
 
         private void SetupField(LinuxMintDebianEdition linuxMintDebianEdition) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = false;
-            this.namingRules.IsEnabled = false;
-            this.fileManager.IsEnabled = true;
-            this.installer.IsEnabled = false;
-            this.specialDesign.IsEnabled = false;
+            BoolSetupField(false, false, true, false, false);
         }
 
         private void SetupField(ElementaryOS elementaryOS) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = true;
-            this.namingRules.IsEnabled = true;
-            this.fileManager.IsEnabled = false;
-            this.installer.IsEnabled = true;
-            this.specialDesign.IsEnabled = false;
+            BoolSetupField(true, true, false, true, false);
         }
 
         private void SetupField(SolusOS solusOS) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = false;
-            this.namingRules.IsEnabled = false;
-            this.fileManager.IsEnabled = true;
-            this.installer.IsEnabled = true;
-            this.specialDesign.IsEnabled = false;
+            BoolSetupField(false, false, true, true, false);
         }
 
         private void SetupField(CommodoreOS commodorreOS) {
-            this.systemName.IsEnabled = true;
-            this.systemVersion.IsEnabled = true;
-            this.coreVersion.IsEnabled = true;
-            this.imageName.IsEnabled = true;
-            this.namingRules.IsEnabled = true;
-            this.fileManager.IsEnabled = true;
-            this.installer.IsEnabled = false;
-            this.specialDesign.IsEnabled = true;
+            BoolSetupField(true, true, true, false, true);
         }
 
 
