@@ -8,10 +8,13 @@ using System.Xml.Serialization;
 namespace Serializer.Distributions {
     [XmlRoot]
     public class CommodoreOS : LinuxMint {
+        public string specialDesign { get; set; }
         public CommodoreOS() {
         }
 
-        public CommodoreOS(string version) : base(version) {
+        public CommodoreOS(string systemName, string systemVersion, string coreVersion, string imageName, string namingRules, string fileManager, string specialDesign) :
+               base(systemName, systemVersion, coreVersion, imageName, namingRules, fileManager) {
+            this.specialDesign = specialDesign;
         }
     }
 }

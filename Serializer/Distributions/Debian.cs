@@ -9,12 +9,16 @@ namespace Serializer.Distributions {
     [XmlRoot]
     public class Debian {
         [XmlElement]
-        public string version { get; set; }
+        public string systemVersion { get; set; }
+        public string coreVersion { get; set; }
+        public string systemName { get; set; } 
 
         public Debian (){}
 
-        public Debian (string version) {
-            this.version = version;
+        public Debian (string systemName, string systemVersion, string coreVersion) {
+            this.systemName = systemName;
+            this.systemVersion = systemVersion;
+            this.coreVersion = coreVersion;
         }
 
     }

@@ -8,10 +8,13 @@ using System.Xml.Serialization;
 namespace Serializer.Distributions {
     [XmlRoot]
     public class LinuxMint : Ubuntu {
+        public string fileManager { get; set; }
         public LinuxMint() {
         }
 
-        public LinuxMint(string version) : base (version) {
+        public LinuxMint(string systemName, string systemVersion, string coreVersion, string imageName, string namingRules, string fileManager) :
+               base(systemName, systemVersion, coreVersion, imageName, namingRules) {
+            this.fileManager = fileManager;
         }
     }
 }

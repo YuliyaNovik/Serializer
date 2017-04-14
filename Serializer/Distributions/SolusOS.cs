@@ -8,10 +8,14 @@ using System.Xml.Serialization;
 namespace Serializer.Distributions {
     [XmlRoot]
     public class SolusOS : LinuxMintDebianEdition{
+
+        public string installer { get; set; }
         public SolusOS() {
         }
 
-        public SolusOS(string version) : base (version) {
+        public SolusOS(string systemName, string systemVersion, string coreVersion, string fileManager, string installer) :
+               base(systemName, systemVersion, coreVersion, fileManager) {
+            this.installer = installer;
         }
     }
 }

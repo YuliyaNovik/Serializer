@@ -8,11 +8,16 @@ using System.Xml.Serialization;
 namespace Serializer.Distributions {
     [XmlRoot]
     public class Ubuntu : Debian {
+        public string imageName { get; set; }
+        public string namingRules { get; set; }
 
-        public Ubuntu() { }
+        public Ubuntu() {}
 
-        public Ubuntu(string version) : base(version) {
+        public Ubuntu(string systemName, string systemVersion, string coreVersion, string imageName, string namingRules) : 
+               base(systemName, systemVersion, coreVersion) {
+            this.imageName = imageName;
+            this.namingRules = namingRules;
         }
-
     }
+    
 }
