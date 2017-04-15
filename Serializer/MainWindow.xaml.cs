@@ -98,22 +98,29 @@ namespace Serializer {
         }
         
         private void AddToList(Ubuntu ubuntu) {
-            this.list.Add(new Ubuntu(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text));
+            this.list.Add(new Ubuntu(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text,
+                                     this.imageName.Text, this.namingRules.Text));
         }
         private void AddToList(LinuxMint linuxMint) {
-            this.list.Add(new LinuxMint(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text, this.fileManager.Text));
+            this.list.Add(new LinuxMint(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text,
+                                        this.imageName.Text, this.namingRules.Text, this.fileManager.Text));
         }
         private void AddToList(LinuxMintDebianEdition linuxMintDebianEDition) {
-            this.list.Add(new LinuxMintDebianEdition(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.fileManager.Text));
+            this.list.Add(new LinuxMintDebianEdition(this.systemName.Text, this.systemVersion.Text,
+                                                     this.coreVersion.Text, this.fileManager.Text));
         }
         private void AddToList(ElementaryOS elementaryOS) {
-            this.list.Add(new ElementaryOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text, this.fileManager.Text));
+            this.list.Add(new ElementaryOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text,
+                                           this.imageName.Text, this.namingRules.Text, this.fileManager.Text));
         }
         private void AddToList(SolusOS solusOS) {
-            this.list.Add(new SolusOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.fileManager.Text, this.installer.Text));
+            this.list.Add(new SolusOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text,
+                                      this.fileManager.Text, this.installer.Text));
         }
         private void AddToList(CommodoreOS commodoreOS) {
-            this.list.Add(new CommodoreOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text, this.fileManager.Text, this.specialDesign.Text));
+            this.list.Add(new CommodoreOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text,
+                                          this.imageName.Text, this.namingRules.Text, this.fileManager.Text,
+                                           this.specialDesign.Text));
         }
 
         private void SetupRequiredValues(string systemName = "", string systemVersion = "", string coreVersion = "", string imageName = "", string namingRules = "", string fileManager = "", string installer = "", string specialDesign = "") {
@@ -174,53 +181,45 @@ namespace Serializer {
                                      specialDesign: commodoreOS.specialDesign);
         }
 
-        private void EditProperties(Debian debian) {
+        private void EditRequiredProperties(Debian debian) {
             this.list[this.list.IndexOf(debian)].systemName = this.systemName.Text;
             this.list[this.list.IndexOf(debian)].systemVersion = this.systemVersion.Text;
             this.list[this.list.IndexOf(debian)].coreVersion = this.coreVersion.Text;
         }
 
+        private void EditProperties(Debian debian) {
+            EditRequiredProperties(debian);
+        }
+
         private void EditProperties(Ubuntu ubuntu) {
-            this.list[this.list.IndexOf(ubuntu)].systemName = this.systemName.Text;
-            this.list[this.list.IndexOf(ubuntu)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(ubuntu)].coreVersion = this.coreVersion.Text;
+            EditRequiredProperties(ubuntu);
             this.list[this.list.IndexOf(ubuntu)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(ubuntu)].namingRules = this.namingRules.Text;
         }
         private void EditProperties(LinuxMint linuxMint) {
-            this.list[this.list.IndexOf(linuxMint)].systemName = this.systemName.Text;
-            this.list[this.list.IndexOf(linuxMint)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(linuxMint)].coreVersion = this.coreVersion.Text;
+            EditRequiredProperties(linuxMint);
             this.list[this.list.IndexOf(linuxMint)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(linuxMint)].namingRules = this.namingRules.Text;
             this.list[this.list.IndexOf(linuxMint)].fileManager = this.fileManager.Text;
         }
         private void EditProperties(LinuxMintDebianEdition linuxMintDebianEdition) {
-            this.list[this.list.IndexOf(linuxMintDebianEdition)].systemName = this.systemName.Text;
-            this.list[this.list.IndexOf(linuxMintDebianEdition)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(linuxMintDebianEdition)].coreVersion = this.coreVersion.Text;
+            EditRequiredProperties(linuxMintDebianEdition);
             this.list[this.list.IndexOf(linuxMintDebianEdition)].fileManager = this.fileManager.Text;
         }
 
         private void EditProperties(ElementaryOS elementaryOS) {
-            this.list[this.list.IndexOf(elementaryOS)].systemName = this.systemName.Text;
-            this.list[this.list.IndexOf(elementaryOS)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(elementaryOS)].coreVersion = this.coreVersion.Text;
+            EditRequiredProperties(elementaryOS);
             this.list[this.list.IndexOf(elementaryOS)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(elementaryOS)].namingRules = this.namingRules.Text;
             this.list[this.list.IndexOf(elementaryOS)].installer = this.installer.Text;
         }
         private void EditProperties(SolusOS solusOS) {
-            this.list[this.list.IndexOf(solusOS)].systemName = this.systemName.Text;
-            this.list[this.list.IndexOf(solusOS)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(solusOS)].coreVersion = this.coreVersion.Text;
+            EditRequiredProperties(solusOS);
             this.list[this.list.IndexOf(solusOS)].fileManager = this.fileManager.Text;
             this.list[this.list.IndexOf(solusOS)].installer = this.installer.Text;
         }
         private void EditProperties(CommodoreOS commodoreOS) {
-            this.list[this.list.IndexOf(commodoreOS)].systemName = this.systemName.Text;
-            this.list[this.list.IndexOf(commodoreOS)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(commodoreOS)].coreVersion = this.coreVersion.Text;
+            EditRequiredProperties(commodoreOS);
             this.list[this.list.IndexOf(commodoreOS)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(commodoreOS)].namingRules = this.namingRules.Text;
             this.list[this.list.IndexOf(commodoreOS)].fileManager = this.fileManager.Text;
