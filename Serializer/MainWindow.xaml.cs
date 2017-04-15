@@ -94,62 +94,26 @@ namespace Serializer {
 
 
         private void AddToList(Debian debian) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            this.list.Add(new Debian(systemName, systemVersion, systemCore));
+            this.list.Add(new Debian(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text));
         }
         
         private void AddToList(Ubuntu ubuntu) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            string imageName = this.imageName.Text;
-            string namingRules = this.namingRules.Text;
-            this.list.Add(new Ubuntu(systemName, systemVersion, systemCore, imageName, namingRules));
+            this.list.Add(new Ubuntu(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text));
         }
         private void AddToList(LinuxMint linuxMint) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            string imageName = this.imageName.Text;
-            string namingRules = this.namingRules.Text;
-            string fileManager = this.fileManager.Text;
-            this.list.Add(new LinuxMint(systemName, systemVersion, systemCore, imageName, namingRules, fileManager));
+            this.list.Add(new LinuxMint(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text, this.fileManager.Text));
         }
         private void AddToList(LinuxMintDebianEdition linuxMintDebianEDition) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            string fileManager = this.fileManager.Text;
-            this.list.Add(new LinuxMintDebianEdition(systemName, systemVersion, systemCore, fileManager));
+            this.list.Add(new LinuxMintDebianEdition(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.fileManager.Text));
         }
         private void AddToList(ElementaryOS elementaryOS) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            string imageName = this.imageName.Text;
-            string namingRules = this.namingRules.Text;
-            string fileManager = this.fileManager.Text;
-            this.list.Add(new ElementaryOS(systemName, systemVersion, systemCore, imageName, namingRules, fileManager));
+            this.list.Add(new ElementaryOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text, this.fileManager.Text));
         }
         private void AddToList(SolusOS solusOS) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            string fileManager = this.fileManager.Text;
-            string installer = this.installer.Text;
-            this.list.Add(new SolusOS(systemName, systemVersion, systemCore, fileManager, installer));
+            this.list.Add(new SolusOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.fileManager.Text, this.installer.Text));
         }
         private void AddToList(CommodoreOS commodoreOS) {
-            string systemName = this.systemName.Text;
-            string systemVersion = this.systemVersion.Text;
-            string systemCore = this.coreVersion.Text;
-            string imageName = this.imageName.Text;
-            string namingRules = this.namingRules.Text;
-            string fileManager = this.fileManager.Text;
-            string specialDesign = this.specialDesign.Text;
-            this.list.Add(new CommodoreOS(systemName, systemVersion, systemCore, imageName, namingRules, fileManager, specialDesign));
+            this.list.Add(new CommodoreOS(this.systemName.Text, this.systemVersion.Text, this.coreVersion.Text, this.imageName.Text, this.namingRules.Text, this.fileManager.Text, this.specialDesign.Text));
         }
 
         private void SetupRequiredValues(string systemName = "", string systemVersion = "", string coreVersion = "", string imageName = "", string namingRules = "", string fileManager = "", string installer = "", string specialDesign = "") {
@@ -200,7 +164,7 @@ namespace Serializer {
             this.SetupField(solusOS);
             this.SetupRequiredValues(systemName: solusOS.systemName, systemVersion: solusOS.systemVersion,
                                      coreVersion: solusOS.coreVersion,fileManager: solusOS.fileManager,
-                                     installer: solusOS.installer);
+                                      installer: solusOS.installer);
         }
         private void ViewProperties(CommodoreOS commodoreOS) {
             this.SetupField(commodoreOS);
@@ -208,7 +172,6 @@ namespace Serializer {
                                      coreVersion: commodoreOS.coreVersion, imageName: commodoreOS.imageName,
                                      namingRules: commodoreOS.namingRules, fileManager: commodoreOS.fileManager,
                                      specialDesign: commodoreOS.specialDesign);
-
         }
 
         private void EditProperties(Debian debian) {
@@ -220,14 +183,14 @@ namespace Serializer {
         private void EditProperties(Ubuntu ubuntu) {
             this.list[this.list.IndexOf(ubuntu)].systemName = this.systemName.Text;
             this.list[this.list.IndexOf(ubuntu)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(ubuntu)].systemCore = this.coreVersion.Text;
+            this.list[this.list.IndexOf(ubuntu)].coreVersion = this.coreVersion.Text;
             this.list[this.list.IndexOf(ubuntu)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(ubuntu)].namingRules = this.namingRules.Text;
         }
         private void EditProperties(LinuxMint linuxMint) {
             this.list[this.list.IndexOf(linuxMint)].systemName = this.systemName.Text;
             this.list[this.list.IndexOf(linuxMint)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(linuxMint)].systemCore = this.coreVersion.Text;
+            this.list[this.list.IndexOf(linuxMint)].coreVersion = this.coreVersion.Text;
             this.list[this.list.IndexOf(linuxMint)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(linuxMint)].namingRules = this.namingRules.Text;
             this.list[this.list.IndexOf(linuxMint)].fileManager = this.fileManager.Text;
@@ -242,7 +205,7 @@ namespace Serializer {
         private void EditProperties(ElementaryOS elementaryOS) {
             this.list[this.list.IndexOf(elementaryOS)].systemName = this.systemName.Text;
             this.list[this.list.IndexOf(elementaryOS)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(elementaryOS)].systemCore = this.coreVersion.Text;
+            this.list[this.list.IndexOf(elementaryOS)].coreVersion = this.coreVersion.Text;
             this.list[this.list.IndexOf(elementaryOS)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(elementaryOS)].namingRules = this.namingRules.Text;
             this.list[this.list.IndexOf(elementaryOS)].installer = this.installer.Text;
@@ -257,7 +220,7 @@ namespace Serializer {
         private void EditProperties(CommodoreOS commodoreOS) {
             this.list[this.list.IndexOf(commodoreOS)].systemName = this.systemName.Text;
             this.list[this.list.IndexOf(commodoreOS)].systemVersion = this.systemVersion.Text;
-            this.list[this.list.IndexOf(commodoreOS)].systemCore = this.coreVersion.Text;
+            this.list[this.list.IndexOf(commodoreOS)].coreVersion = this.coreVersion.Text;
             this.list[this.list.IndexOf(commodoreOS)].imageName = this.imageName.Text;
             this.list[this.list.IndexOf(commodoreOS)].namingRules = this.namingRules.Text;
             this.list[this.list.IndexOf(commodoreOS)].fileManager = this.fileManager.Text;
